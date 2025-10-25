@@ -1,8 +1,10 @@
 import os.path
+from dotenv import load_dotenv 
+load_dotenv()
 
 DEBUG = True
-UPLOAD_SECRET_CODE = None
 BASE_URI = "https://i.subpolare.ru"
+UPLOAD_SECRET_CODE = os.getenv('SECRET_CODE')
 IMAGE_EXTENSIONS = ["jpg", "jpeg", "png"]
 VIDEO_EXTENSIONS = ["mp4", "mov", "gif"]
 ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS

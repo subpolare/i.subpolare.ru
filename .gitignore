@@ -99,4 +99,4 @@ pip-selfcheck.json
 .DS_Store
 ._.DS_Store
 
-
+.env
