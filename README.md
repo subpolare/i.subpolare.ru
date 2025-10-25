@@ -1,4 +1,4 @@
-# i.vas3k.ru 
+# i.subpolare.ru 
 
 ### Old and simple script which helps me to upload, resize and insert pictures to my blog 
 
@@ -10,8 +10,8 @@ Almost all logic sits in one file (app.py). Also see settings.py before you go. 
 
 Here is some examples how everything works:
 
-* http://i.vas3k.ru/32p.jpg — canonical image URL. Returns an image resized to an universal width. See COMMON_IMAGE_LENGTH in settings;
-* http://i.vas3k.ru/full/32p.jpg — original image file;
-* http://i.vas3k.ru/500/32p.jpg — resized to 500px by the longest side. Min = 50, max = 20000;
-* http://i.vas3k.ru/width/500/32p.jpg — resized to 500px by the width. For convenient tiling or background usage;
-* http://i.vas3k.ru/square/500/32p.jpg — cropped to the square in the center;
+* http://i.subpolare.ru/32p.jpg — canonical image URL. Returns an image resized to an universal width. See COMMON_IMAGE_LENGTH in settings;
+* http://i.subpolare.ru/full/32p.jpg — original image file;
+* http://i.subpolare.ru/500/32p.jpg — resized to 500px by the longest side. Min = 50, max = 20000;
+* http://i.subpolare.ru/width/500/32p.jpg — resized to 500px by the width. For convenient tiling or background usage;
+* http://i.subpolare.ru/square/500/32p.jpg — cropped to the square in the center;
