@@ -2,7 +2,7 @@ import os.path
 
 DEBUG = True
 UPLOAD_SECRET_CODE = None
-BASE_URI = "https://i.vas3k.ru"
+BASE_URI = "https://i.subpolare.ru"
 IMAGE_EXTENSIONS = ["jpg", "jpeg", "png"]
 VIDEO_EXTENSIONS = ["mp4", "mov", "gif"]
 ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS
@@ -10,7 +10,7 @@ ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS
 CURRENT_DIR = os.path.dirname(__file__)
 TEMPLATES_PATH = os.path.join(CURRENT_DIR, "templates")
 
-PSYCOPG_CONNECTION_STRING = "dbname='ivas3kru' user='postgres' host='localhost' password=''"
+PSYCOPG_CONNECTION_STRING = "dbname='isubpolareru' user='postgres' host='localhost' password=''"
 
 # to avoid problems due to the large number of files in the directory
 # the file tree is made, divided file name by N characters (default = 2)
