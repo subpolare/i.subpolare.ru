@@ -15,3 +15,10 @@ Here is some examples how everything works:
 * http://i.subpolare.ru/500/32p.jpg — resized to 500px by the longest side. Min = 50, max = 20000;
 * http://i.subpolare.ru/width/500/32p.jpg — resized to 500px by the width. For convenient tiling or background usage;
 * http://i.subpolare.ru/square/500/32p.jpg — cropped to the square in the center;
+
+## Run locally with Docker
+1. Copy `.env.example` to `.env`, adjust secrets, and change `HOST_PORT` if port 5000 is busy.
+2. Start the stack with `docker compose up --build`.
+3. Open http://localhost:<HOST_PORT value> (default 5000) and sign in with the secret code from your `.env` file.
+
+Uploaded media, logs, and the PostgreSQL data directory stay on the host via bind mounts and the named volume declared in `docker-compose.yml`.

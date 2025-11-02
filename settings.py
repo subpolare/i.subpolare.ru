@@ -1,10 +1,17 @@
-import os.path
-from dotenv import load_dotenv 
+import os
+
+from dotenv import load_dotenv
+
 load_dotenv()
 
-DEBUG = True
-BASE_URI = "https://i.subpolare.ru"
-UPLOAD_SECRET_CODE = os.getenv('SECRET_CODE')
+
+def _env_bool(name, default=False):
+    return os.getenv(name, str(default)).lower() in {"1", "true", "yes", "on"}
+
+
+DEBUG = _env_bool("DEBUG", True)
+BASE_URI = os.getenv("BASE_URI", "https://i.subpolare.ru")
+UPLOAD_SECRET_CODE = os.getenv("SECRET_CODE")
 IMAGE_EXTENSIONS = ["jpg", "jpeg", "png"]
 VIDEO_EXTENSIONS = ["mp4", "mov", "gif"]
 ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS
@@ -12,7 +19,10 @@ ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS
 CURRENT_DIR = os.path.dirname(__file__)
 TEMPLATES_PATH = os.path.join(CURRENT_DIR, "templates")
 
-PSYCOPG_CONNECTION_STRING = "dbname='isubpolareru' user='postgres' host='localhost' password=''"
+PSYCOPG_CONNECTION_STRING = os.getenv(
+    "PSYCOPG_CONNECTION_STRING",
+    "dbname='isubpolareru' user='postgres' host='localhost' password=''",
+)
 
 # to avoid problems due to the large number of files in the directory
 # the file tree is made, divided file name by N characters (default = 2)
@@ -49,6 +59,6 @@ VIDEO_OUTPUT_SETTINGS = {
 }
 
 try:
-    from local_settings import *
+    from local_settings import *  # noqa: F401,F403
 except ImportError:
     pass
