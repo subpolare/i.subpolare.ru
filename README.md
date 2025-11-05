@@ -22,3 +22,15 @@ Here is some examples how everything works:
 3. Open http://127.0.0.1:8023 and sign in with the secret code from your `.env` file.
 
 Uploaded media, logs, and the PostgreSQL data directory stay on the host via bind mounts and the named volume declared in `docker-compose.yml`.
+
+```
+sudo certbot --nginx -d i.subpolare.ru
+```
+
+```
+rm /etc/nginx/sites-enabled/i.subpolare.ru.conf
+cp etc/nginx/i.subpolare.ru.conf /etc/nginx/sites-available/i.subpolare.ru.conf
+sudo ln -s /etc/nginx/sites-available/i.subpolare.ru.conf /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
