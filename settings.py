@@ -27,7 +27,7 @@ PSYCOPG_CONNECTION_STRING = os.getenv(
 # to avoid problems due to the large number of files in the directory
 # the file tree is made, divided file name by N characters (default = 2)
 # for example: abcd.jpg -> ab / cd.jpg, for abcde.jpg -> ab / cd / e.jpg
-FILE_TREE_SPLIT_N = 2  # DO NOT CHANGE IT AFTER RELEASE
+FILE_TREE_SPLIT_N = 8  # DO NOT CHANGE IT AFTER RELEASE
 
 # Images
 
