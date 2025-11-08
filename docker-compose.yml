@@ -7,6 +7,12 @@ services:
       - "127.0.0.1:8023:5000"
     environment:
       FLASK_DEBUG: ${FLASK_DEBUG:-1}
+      PSYCOPG_CONNECTION_STRING: >-
+        dbname=${POSTGRES_DB}
+        user=${POSTGRES_USER}
+        password=${POSTGRES_PASSWORD}
+        host=${POSTGRES_HOST}
+        port=${POSTGRES_PORT}
       HOST: 0.0.0.0
       PORT: 5000
     env_file:
