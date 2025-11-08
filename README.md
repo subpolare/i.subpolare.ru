@@ -2,7 +2,8 @@
   <h1>i.subpolare.ru</h1> 
 </div>
 
-This is the code base of [vas3k's simple and beautiful script](https://github.com/vas3k/i.vas3k.ru) for picture uploading. I just adapted it for [my blog](https://github.com/subpolare/subpolare.blog) and add Docker.
+This is the code base of [vas3k's simple and beautiful script](https://github.com/vas3k/i.vas3k.ru) for picture uploading. I just adapted it for [my blog](https://github.com/subpolare/subpolare.blog), add Docker and use [bjoern](https://github.com/jonashaag/bjoern) as a lightweight, high-performance WSGI server to run Flask app.
+
 
 Does many handy things using a bit of nginx X-Accel-Redirect magic. Can resize pictures on the go and distribute the final result through nginx. Here is some examples how it works:
 
