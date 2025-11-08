@@ -17,7 +17,7 @@ TEMPLATES_PATH = os.path.join(CURRENT_DIR, "templates")
 
 PSYCOPG_CONNECTION_STRING = os.getenv(
     "PSYCOPG_CONNECTION_STRING",
-    "dbname='i_subpolare_ru' user='subpolare' host='localhost' password='subpolare'",
+    "dbname='i_subpolare_ru' user='subpolare' host='postgres' password='subpolare'",
 )
 
 # to avoid problems due to the large number of files in the directory
