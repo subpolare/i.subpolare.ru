@@ -15,15 +15,9 @@ ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS
 CURRENT_DIR = os.path.dirname(__file__)
 TEMPLATES_PATH = os.path.join(CURRENT_DIR, "templates")
 
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "postgres")
-POSTGRES_PORT = int(os.getenv("POSTGRES_PORT", "5432"))
-POSTGRES_DB   = os.getenv("POSTGRES_DB", "images")
-POSTGRES_USER = os.getenv("POSTGRES_USER", "app")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
-
 PSYCOPG_CONNECTION_STRING = os.getenv(
     "PSYCOPG_CONNECTION_STRING",
-    "dbname='isubpolareru' user='postgres' host='localhost' password=''",
+    "dbname='i_subpolare_ru' user='subpolare' host='localhost' password='subpolare'",
 )
 
 # to avoid problems due to the large number of files in the directory

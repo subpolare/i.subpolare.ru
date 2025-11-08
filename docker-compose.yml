@@ -7,12 +7,10 @@ services:
       - "127.0.0.1:8023:5000"
     environment:
       FLASK_DEBUG: ${FLASK_DEBUG:-1}
-      PSYCOPG_CONNECTION_STRING: >-
-        dbname=${POSTGRES_DB}
-        user=${POSTGRES_USER}
-        password=${POSTGRES_PASSWORD}
-        host=${POSTGRES_HOST}
-        port=${POSTGRES_PORT}
+      POSTGRES_DB: i_subpolare_ru
+      POSTGRES_USER: subpolare
+      POSTGRES_PASSWORD: subpolare
+      POSTGRES_HOST: localhost
       HOST: 0.0.0.0
       PORT: 5000
     env_file:
@@ -23,8 +21,7 @@ services:
       - ./videos:/app/videos
       - ./logs:/app/logs
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     logging:
       driver: "json-file"
       options:
@@ -41,8 +38,3 @@ services:
       POSTGRES_DB: i_subpolare_ru
     volumes:
       - /home/subpolare/pgdata_i_subpolare_ru:/var/lib/postgresql/data:rw
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-isubpolareru}"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
