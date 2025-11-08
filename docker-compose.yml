@@ -2,6 +2,7 @@ services:
   web:
     build: .
     command: python bjoern.py
+    container_name: isubpolareru_app
     ports:
       - "127.0.0.1:8023:5000"
     environment:
@@ -26,7 +27,7 @@ services:
 
   postgres:
     image: postgres:15
-    container_name: image_postgres
+    container_name: isubpolareru_postgres
     restart: always
     environment:
       POSTGRES_USER: subpolare
