@@ -25,6 +25,19 @@ There is a simple way to build it using Docker.
 2. Start the stack with `docker compose up --build -d`.
 3. Open http://127.0.0.1:8023 and sign in with the secret code from your `.env` file.
 
+If database doesn't exist, run: 
+
+```
+docker exec -it isubpolareru_postgres psql -U subpolare -d i_subpolare_ru -c \
+"create table if not exists public.images (
+  id bigserial primary key,
+  image varchar(128),
+  file  varchar(255),
+  created_at timestamptz not null default now()
+);
+alter table public.images owner to subpolare;"
+```
+
 Uploaded media, logs, and the PostgreSQL data directory stay on the host via bind mounts and the named volume declared in `docker-compose.yml`.
 
 But if you want the whole world to enjoy the picture, you need something else: HTTPS and `nginx`. 
