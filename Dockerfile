@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zlib1g-dev \
     libpng-dev \
     ffmpeg \
+    gcc libev-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
@@ -25,4 +26,4 @@ ENV FLASK_APP=app.py \
 
 EXPOSE 5000
 
-CMD ["flask", "run"]
+CMD ["python", "bjoern.py"]
