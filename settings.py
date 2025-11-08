@@ -1,13 +1,9 @@
 import os
-
 from dotenv import load_dotenv
-
 load_dotenv()
-
 
 def _env_bool(name, default=False):
     return os.getenv(name, str(default)).lower() in {"1", "true", "yes", "on"}
-
 
 DEBUG = _env_bool("DEBUG", True)
 BASE_URI = os.getenv("BASE_URI", "https://i.subpolare.ru")
@@ -18,6 +14,12 @@ ALLOWED_EXTENSIONS = IMAGE_EXTENSIONS + VIDEO_EXTENSIONS
 
 CURRENT_DIR = os.path.dirname(__file__)
 TEMPLATES_PATH = os.path.join(CURRENT_DIR, "templates")
+
+POSTGRES_HOST = os.getenv("POSTGRES_HOST", "postgres")
+POSTGRES_PORT = int(os.getenv("POSTGRES_PORT", "5432"))
+POSTGRES_DB   = os.getenv("POSTGRES_DB", "images")
+POSTGRES_USER = os.getenv("POSTGRES_USER", "app")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
 
 PSYCOPG_CONNECTION_STRING = os.getenv(
     "PSYCOPG_CONNECTION_STRING",
