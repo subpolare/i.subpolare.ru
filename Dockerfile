@@ -26,4 +26,4 @@ ENV FLASK_APP=app.py \
 
 EXPOSE 5000
 
-CMD ["python", "bjoern.py"]
+CMD ["python", "serve.py"]

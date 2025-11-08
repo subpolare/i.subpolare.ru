@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    command: python bjoern.py
+    command: python serve.py
     container_name: isubpolareru_app
     ports:
       - "127.0.0.1:8023:5000"
