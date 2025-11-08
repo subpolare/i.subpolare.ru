@@ -22,6 +22,11 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
+@app.get("/healthz")
+def healthz():
+    return "ok", 200, {"Content-Type": "text/plain"}
+
+
 @app.route("/")
 def index():
     response = make_response(

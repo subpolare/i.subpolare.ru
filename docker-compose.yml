@@ -1,6 +1,7 @@
 services:
   web:
     build: .
+    command: python bjoern.py
     ports:
       - "127.0.0.1:8023:5000"
     environment:
@@ -15,7 +16,7 @@ services:
       - ./videos:/app/videos
       - ./logs:/app/logs
     depends_on:
-      db:
+      postgres:
         condition: service_healthy
     logging:
       driver: "json-file"
@@ -23,21 +24,18 @@ services:
         max-size: "100M"
         max-file: "3"
 
-  db:
+  postgres:
     image: postgres:15
-    restart: unless-stopped
+    container_name: image_postgres
+    restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-isubpolareru}
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_USER: subpolare
+      POSTGRES_PASSWORD: subpolare
+      POSTGRES_DB: i_subpolare_ru
     volumes:
-      - pgdata:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - /home/subpolare/pgdata_i_subpolare_ru:/var/lib/postgresql/data:rw
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-isubpolareru}"]
       interval: 5s
       timeout: 5s
       retries: 5
-
-volumes:
-  pgdata:
