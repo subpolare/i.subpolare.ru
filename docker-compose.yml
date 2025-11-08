@@ -21,7 +21,8 @@ services:
       - ./videos:/app/videos
       - ./logs:/app/logs
     depends_on:
-      - postgres
+      postgres: 
+        condition: service_healthy
     logging:
       driver: "json-file"
       options:
@@ -38,3 +39,8 @@ services:
       POSTGRES_DB: i_subpolare_ru
     volumes:
       - /home/subpolare/pgdata_i_subpolare_ru:/var/lib/postgresql/data:rw
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
