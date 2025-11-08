@@ -39,6 +39,7 @@ services:
       POSTGRES_DB: i_subpolare_ru
     volumes:
       - /home/subpolare/pgdata_i_subpolare_ru:/var/lib/postgresql/data:rw
+      - ./initdb:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "subpolare",  "-d", "i_subpolare_ru"]
       interval: 5s
